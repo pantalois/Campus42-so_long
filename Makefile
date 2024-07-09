@@ -1,22 +1,21 @@
-MLX = lib/MLX42
-
-MLX_MAKE = make --no-print-directory -C MLX42
+MLX = MLX42/build/libmlx42.a
 
 LIBFT = libft/libft.a
 
 LIBFT_MAKE = make --no-print-directory -C libft
 
-FT_PRINTF = libft/ft_printf/ft_printf.h
-
-FT_PRINTF_MAKE = make --no-print-directory -C ft_printf
+FT_PRINTF = libft/ft_printf/libftprintf.a
 
 NAME = so_long
 
-SRC = so_long.c
-
+SRC = so_long.c \
+	  so_long_utils.c
+		
 OBJ = $(SRC:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast
+
+LFLAGS = -ldl -lglfw -lm
 
 CC = cc
 
@@ -24,16 +23,16 @@ RM = rm -f
 
 INCLUDE = so_long.h Makefile
 
-%.o: %.c $(INCLUDE)
-		$(CC) $(CFLAGS) -c $< -o $@
-
 all: library $(NAME)
 
-$(NAME): $(OBJ)
-				$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(FT_PRINTF) -O $(NAME)
+$(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF) $(MLX)
+		$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(FT_PRINTF) $(MLX) $(LFLAGS) -o $(NAME)
 
-libft:
+$(LIBFT):
 		$(LIBFT_MAKE)
+
+%.o: %.c
+		$(CC) $(CFLAGS) -I ./include -I	./lib/MLX42/include	-c $< -o $@
 
 clean:
 			$(RM) $(OBJ)
@@ -48,4 +47,4 @@ library:
 
 re: fclean all
 
-.PHONY: all clean fclean re libft ft_printf
+.PHONY: all clean fclean re libft ft_printf get_next_line mlx
