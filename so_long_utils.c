@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:49:24 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/09 18:28:50 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/10 19:58:00 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	ft_map_type(char *argv)
 	char *type;
 
 	type = ft_strrchr(argv, '.');
-	ft_printf("tipo %s\n", type);
 	if (!ft_strncmp(type, ".ber", ft_strlen(type)))
 		return (1);
+	
 	else
 		return (0);
 }
@@ -27,9 +27,45 @@ int	ft_map_type(char *argv)
 char *ft_check_map(char *argv)
 {
 	int	fd;
-	char *line;
+	t_map	map;	
+	int	i;
+	int j;
+	int	x;
 
+	i = 0;
+	j = 0;
 	fd = open(argv, O_RDONLY);
-	line = get_next_line(fd);
+	if (fd == -1)
+		return (0);
+	map.line = get_next_line(fd);
+	if (!map.line)
+	{
+		ft_printf("Error, no map inside .ber");//perror?strerror?
+		return (0);
+	}
+	while (map.line[i]) //aqui calculo la longitud de la primera linea del mapa
+		i++;
+	while (map.line)
+	{	
+		x = 0;
+		map.line = get_next_line(fd);
+		while (map.line && map.line[x])
+			x++;
+		if (map.line && x == i) //aqui voy comprobando que sean todas iguakes a la primera
+			j++;
+		else if (map.line && x != i) //aqui compruebo la diferencia meintras exista linea, sino me entra como x = 0
+		{
+			ft_printf("x = %i\ni = %i\n", x, i);
+			ft_printf("Error, map with variable width");//perror?strerror?
+			return (0);
+		}
+	}
+	map.width = i - 1;
+	map.height = j -1;
+	ft_printf("largo = %i\n", map.width);
+	ft_printf("ancho = %i\n", map.height);
+	//toca decirle a todo esto lo siguiente: que si map.width y map.height son iguales error por mapa cuadrado 
+	//ir comprobado que la primera linea del mapa sean todo 1, que la ultima tambien
+	//y que todas tengan un 1 y un 1 al principio y al final
 	return (0);
 }

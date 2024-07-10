@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:21:19 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/09 17:59:16 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:40:12 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,12 @@
 
 int	ft_map_type(char *argv);
 char	*ft_check_map(char *argv);
+
+typedef struct s_map
+{
+	int	height;
+	int width;
+	char	*line;
+}				t_map;
 
 #endif

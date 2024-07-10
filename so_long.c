@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:47:12 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/09 18:04:03 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:22:53 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	main(int argc, char *argv[])
 		//si el argumento es un .ber hacer cosas
 		//si no lo es que pasa??
 	}
-/*
-	mlx = mlx_init();
+
+/*	mlx = mlx_init();
 	if (!mlx)
 		return (1);
 	mlx_window = mlx_new_window(mlx, 1920, 1080, "mapa test");
