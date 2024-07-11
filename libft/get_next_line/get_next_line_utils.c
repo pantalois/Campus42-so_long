@@ -49,7 +49,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	return (free(s1), ptr);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_gnl(const char *s, int c)
 {
 	int		i;
 	char	chr;

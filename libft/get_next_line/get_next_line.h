@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:42:58 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/09 18:17:38 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:35:26 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strdup_gnl(char *s1);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 char	*ft_read_file(int fd, char *line);
 char	*ft_create_line(char *buffer, char *line);
-char	*ft_strchr(const char *s, int c);
+char	*ft_strchr_gnl(const char *s, int c);
 char	*free_static(char **stash);
 
 #endif

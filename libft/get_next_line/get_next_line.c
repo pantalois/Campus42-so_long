@@ -32,7 +32,7 @@ char	*ft_read_file(int fd, char *stash)
 		return (free(buffer), free_static(&stash));
 	buffer[0] = '\0';
 	bytes_read = 1;
-	while (!(ft_strchr(buffer, '\n')) && bytes_read != 0)
+	while (!(ft_strchr_gnl(buffer, '\n')) && bytes_read != 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
@@ -110,7 +110,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!stash || !(ft_strchr(stash, '\n')))
+	if (!stash || !(ft_strchr_gnl(stash, '\n')))
 		stash = ft_read_file(fd, stash);
 	if (!stash)
 		return (NULL);
