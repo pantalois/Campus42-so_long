@@ -1,0 +1,1 @@
+Get_next_line involves programming a function that returns a line read from a file descriptor. Creating this code helped me understand what a file descriptor is, but above all, it showed me how easy it is to create a memory leak and how hard it is to fix it.
