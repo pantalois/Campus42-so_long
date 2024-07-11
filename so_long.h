@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:21:19 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/10 16:40:12 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/11 15:15:41 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 #define WIDTH 256
 #define HEIGHT 256
 
+
+
 int	ft_map_type(char *argv);
 char	*ft_check_map(char *argv);
 
@@ -31,6 +33,7 @@ typedef struct s_map
 	int	height;
 	int width;
 	char	*line;
-}				t_map;
+}	t_map;
 
+int ft_check_walls(t_map map, int j);
 #endif

@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:49:24 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/10 19:58:00 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/11 15:39:24 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ char *ft_check_map(char *argv)
 		ft_printf("Error, no map inside .ber");//perror?strerror?
 		return (0);
 	}
+	if (ft_check_walls(map, j))
+	{
+		ft_printf("Map not surrounded by walls\n");
+		return (0);
+	}
 	while (map.line[i]) //aqui calculo la longitud de la primera linea del mapa
 		i++;
 	while (map.line)
@@ -61,11 +66,29 @@ char *ft_check_map(char *argv)
 		}
 	}
 	map.width = i - 1;
-	map.height = j -1;
+	map.height = j + 1; //+1 porque antes no tenemos en cuenta la primera fila cuando empezamos el ckeckeo.
 	ft_printf("largo = %i\n", map.width);
 	ft_printf("ancho = %i\n", map.height);
 	//toca decirle a todo esto lo siguiente: que si map.width y map.height son iguales error por mapa cuadrado 
 	//ir comprobado que la primera linea del mapa sean todo 1, que la ultima tambien
 	//y que todas tengan un 1 y un 1 al principio y al final
+	return (0);
+}
+
+int ft_check_walls(t_map map, int j)
+{
+	if (j == 0)
+	{	
+		while (map.line[j] && map.line[j] == '1')
+		{
+			ft_printf("%i map.line = %c\n", j, map.line[1]); 
+			j++;
+		}
+		ft_printf("map.line final = %c\n", map.line[j]);
+		if (!map.line[j])
+			return (1);
+		else
+			return (0);
+	}
 	return (0);
 }
