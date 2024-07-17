@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loigonza <loigonza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:17:09 by loigonza          #+#    #+#             */
-/*   Updated: 2024/06/29 18:10:04 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/17 18:49:16 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,15 @@ char	*ft_free_strjoin(char *s1, char *s2)
 		return (0);
 	ptr = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (!ptr)
-		return (0);
+		return (free(s1), NULL);
 	idx = -1;
-	while (s1[++idx] != '\0')
+	while (s1 && s1[++idx] != '\0')
 	{
 		ptr[idx_ptr] = s1[idx];
 		idx_ptr++;
 	}
 	idx = -1;
-	while (s2[++idx] != '\0')
+	while (s2 && s2[++idx] != '\0')
 	{
 		ptr[idx_ptr] = s2[idx];
 		idx_ptr++;

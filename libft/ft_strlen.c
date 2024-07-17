@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loigonza <loigonza@student.42barcel>       +#+  +:+       +#+        */
+/*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:05:01 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/09 18:10:53 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/17 18:47:29 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 size_t	ft_strlen(const char *line)
 {
 	int	i;
-
+	if (!line)
+		return (0);
 	i = 0;
 	while (line[i])
 		i++;

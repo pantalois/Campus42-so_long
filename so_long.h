@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:21:19 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/15 16:09:26 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/17 18:58:36 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 
 int	ft_map_type(char *argv);
-char	*ft_check_map(char *argv);
 
+//memset a estructura 
 typedef struct s_map
 {
 	int	height;
@@ -35,6 +35,8 @@ typedef struct s_map
 	char	*line;
 }	t_map;
 
-int ft_check_walls(t_map map, int j);
-int	ft_chrsearch(t_map map, char c, int j);
+char	**ft_split_map(char *argv, t_map *map);
+int		ft_size_map(char *argv, t_map *map);
+//int ft_check_walls(t_map map, int j);
+//int	ft_chrsearch(t_map map, char c, int j);
 #endif

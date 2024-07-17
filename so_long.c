@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:47:12 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/10 17:22:53 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/17 19:13:38 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ int	main(int argc, char *argv[])
 	/*void	*mlx;
 	void	*mlx_window;
 	t_data	img;*/
-	
+	t_map *map;
+	char	**splited_map;
+
+	map = (t_map *)malloc(sizeof(t_map));
+	ft_memset(map, 0, sizeof(map));
 	(void)argv;
 	//antes de iniciar la mlx controlar que no me pete nada.
 	//solo podre recibir 2 argc, porque sino no podre leer mas de  2 archivos
@@ -36,11 +40,10 @@ int	main(int argc, char *argv[])
 	{
 		if (ft_map_type(argv[1]))
 		{
-			ft_check_map(argv[1]);
-			return (0);
+			if (ft_size_map(argv[1], map) == 1)
+				return (1);
+			splited_map = ft_split_map(argv[1], map);
 		}
-		//si el argumento es un .ber hacer cosas
-		//si no lo es que pasa??
 	}
 
 /*	mlx = mlx_init();
@@ -53,5 +56,8 @@ int	main(int argc, char *argv[])
 								&img.endian);
 	return (0);
 */
+	free(map->line);
+	free(map);
 	return (0);
 }
+

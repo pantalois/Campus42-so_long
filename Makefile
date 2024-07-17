@@ -13,7 +13,7 @@ SRC = so_long.c \
 		
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast
+CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast
 
 LFLAGS = -ldl -lglfw -lm
 
