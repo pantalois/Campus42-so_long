@@ -9,7 +9,8 @@ FT_PRINTF = libft/ft_printf/libftprintf.a
 NAME = so_long
 
 SRC = so_long.c \
-	  so_long_utils.c
+	  so_long_utils.c \
+	  so_long_free.c
 		
 OBJ = $(SRC:.c=.o)
 

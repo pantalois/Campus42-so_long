@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:21:19 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/17 18:58:36 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:18:29 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,18 @@ typedef struct s_map
 {
 	int	height;
 	int width;
+	int	line_width;
 	char	*line;
+	char	**splited_map;
 }	t_map;
 
-char	**ft_split_map(char *argv, t_map *map);
+int		ft_split_map(char *argv, t_map *map);
 int		ft_size_map(char *argv, t_map *map);
+int		ft_corners_map(t_map *map);
+int		ft_sides_map(t_map *map);
+void	ft_free_data(t_map *map);
+void	ft_free_splited_data(t_map *map);
+
 //int ft_check_walls(t_map map, int j);
 //int	ft_chrsearch(t_map map, char c, int j);
 #endif
