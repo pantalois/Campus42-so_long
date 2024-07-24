@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:21:19 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/24 17:44:22 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/24 19:45:36 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,18 @@ typedef struct s_data_map
 	int x_player;
 	int y_player;
 	int	amount_player;
-	int pos_player[2];
-	int	x_exit;
+	int pos_x_player;
+	int pos_y_player;
+	int	x_exit; 
 	int	y_exit;
 	int	amount_exit;
-	int	pos_exit[2];
+	int	cpy_amount_exit;
+	int	pos_x_exit;
+	int	pos_y_exit;
 	int	x_cltbl;
 	int	y_cltbl;
 	int amount_cltbl;
+	int	cpy_amount_cltbl;
 }	t_data_map;
 
 typedef struct s_map
@@ -51,6 +55,7 @@ typedef struct s_map
 	int	line_width;
 	char	*line;
 	char	**splited_map;
+	char	**cpy_splited_map;
 	t_data_map *data;
 }	t_map;
 
@@ -67,6 +72,7 @@ void	ft_free_splited_data(t_map *map);
 int		ft_check_player(t_map *map);
 int		ft_check_exit(t_map *map);
 int     ft_check_cltbl(t_map *map);
-int		ft_flood_fill(t_map *map);
+void	ft_flood_fill(t_map *map, int x, int y);
+int 	ft_equal_cltbl(t_map *map);
 
 #endif
