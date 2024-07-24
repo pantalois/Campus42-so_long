@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:49:24 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/18 15:54:27 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/24 17:43:10 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,7 @@ int	ft_split_map(char *argv, t_map *map)
 int	ft_corners_map(t_map *map)
 {
 	char *check;
-	
-	ft_printf("width = %i\n", map->width);
-	ft_printf("last line = %s\n", map->splited_map[map->height - 1]);
+
 	if (!ft_strncmp(map->splited_map[0], map->splited_map[map->height - 1], \
 	ft_strlen(map->splited_map[0])))
 	{
@@ -112,16 +110,13 @@ int		ft_sides_map(t_map *map)
 	while (map->splited_map[0][i])
 		i++;
 	map->line_width = i - 1;
-	ft_printf("line_width is = %i\n", map->line_width);
-	ft_printf("first map position = %c\n", map->splited_map[j][0]);
-	ft_printf("last map position = %c\n", map->splited_map[j][map->line_width]);
 	while (map->splited_map[j])
 	{
-		if (map->splited_map[j][0] == '1' && map->splited_map[j][map->line_width] == '1')
+		if (map->splited_map[j][0] == '1' && 
+		map->splited_map[j][map->line_width] == '1')
 			j++;
 		else
 		{
-			ft_printf("hola\n");
 			ft_free_data(map);
 			ft_printf("Map not surronded by walls\n");
 			return (1);

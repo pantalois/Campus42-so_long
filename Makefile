@@ -10,7 +10,8 @@ NAME = so_long
 
 SRC = so_long.c \
 	  so_long_utils.c \
-	  so_long_free.c
+	  so_long_free.c \
+	  so_long_flood_fill.c
 		
 OBJ = $(SRC:.c=.o)
 
@@ -32,7 +33,7 @@ $(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF) $(MLX)
 $(LIBFT):
 		$(LIBFT_MAKE)
 
-%.o: %.c
+%.o: %.c $(INCLUDE)
 		$(CC) $(CFLAGS) -I ./include -I	./lib/MLX42/include	-c $< -o $@
 
 clean:
