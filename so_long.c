@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:47:12 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/24 19:45:02 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:04:45 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ int	main(int argc, char *argv[])
 				return (1);
 			x = map->data->pos_x_player;
 			y = map->data->pos_y_player;
-			map->cpy_splited_map = map->splited_map;
-			(ft_flood_fill(map, x, y));
+			ft_flood_fill(map, x, y);
 			if (ft_equal_cltbl(map) == 1)
 				return (1);
+		print_map(map);
 		}
+		
 	}
 	ft_free_data(map);
 	return (0);

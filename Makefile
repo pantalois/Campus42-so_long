@@ -12,7 +12,8 @@ SRC = so_long.c \
 	  so_long_utils.c \
 	  so_long_free.c \
 	  so_long_checks_map.c \
-	  so_long_flood_fill.c 
+	  so_long_flood_fill.c \
+	  print_map.c
 		
 OBJ = $(SRC:.c=.o)
 

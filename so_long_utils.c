@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:49:24 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/24 17:43:10 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/25 14:46:04 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	ft_split_map(char *argv, t_map *map)
 		single_line = get_next_line(fd);
 	}
 	map->splited_map = ft_split(map->line, '\n');//el split no s cre bian, no guarda la memoria de la primera linea.
+	map->cpy_splited_map = ft_split(map->line, '\n');
 	return (0);
 }
 
@@ -106,7 +107,7 @@ int		ft_sides_map(t_map *map)
 	int j;
 
 	i = 0;
-	j = 3;
+	j = 0;
 	while (map->splited_map[0][i])
 		i++;
 	map->line_width = i - 1;

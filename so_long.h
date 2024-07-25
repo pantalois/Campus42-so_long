@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:21:19 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/24 19:45:36 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/25 14:51:03 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ int		ft_check_exit(t_map *map);
 int     ft_check_cltbl(t_map *map);
 void	ft_flood_fill(t_map *map, int x, int y);
 int 	ft_equal_cltbl(t_map *map);
+void    print_map(t_map *map);
 
 #endif

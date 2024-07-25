@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:13:21 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/24 16:38:01 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/25 13:20:59 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,16 @@ void    ft_free_splited_data(t_map *map)
             i++;
         }
         free(map->splited_map);
+    }    
+    i = 0;
+    if (map->cpy_splited_map)
+    {
+        while (map->cpy_splited_map[i])
+        {
+            free(map->cpy_splited_map[i]);
+            i++;
+        }
+        free(map->cpy_splited_map);
     }
 }
+    

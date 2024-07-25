@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:29:05 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/24 19:48:11 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/25 14:42:32 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void ft_flood_fill(t_map *map, int x, int y)
 {
-    if (x >= map->width || x < 0 || y >= map->height || y < 0 ||
-    map->cpy_splited_map[x][y] == '1' || map->cpy_splited_map[x][y] == 'F')
+    if (x >= map->width || x < 0 || y > map->height || y < 0 ||
+    map->cpy_splited_map[y][x] == '1' || map->cpy_splited_map[y][x] == 'F')
         return ;
-    if (map->cpy_splited_map[x][y] == 'C')
+    if (map->cpy_splited_map[y][x] == 'C')
         map->data->cpy_amount_cltbl++;
-    else if (map->cpy_splited_map[x][y] == 'E')
+    if (map->cpy_splited_map[y][x] == 'E')
         map->data->cpy_amount_exit++;
-    map->cpy_splited_map[x][y] = 'F';
+    map->cpy_splited_map[y][x] = 'F';
     ft_flood_fill(map, x + 1, y);
     ft_flood_fill(map, x - 1, y);
     ft_flood_fill(map, x, y + 1);
