@@ -1,12 +1,12 @@
 /* ************************************************************************** */
-/*                                                                            */
+
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:21:19 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/25 14:51:03 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/28 12:29:12 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-#define WIDTH 256
-#define HEIGHT 256
+#define WIDTH 1920
+#define HEIGHT 1080
 
 
 
@@ -48,6 +48,24 @@ typedef struct s_data_map
 	int	cpy_amount_cltbl;
 }	t_data_map;
 
+typedef	struct s_mlx
+{
+	mlx_t	*mlx;
+	mlx_image_t	*image;
+	mlx_texture_t *flor;
+	mlx_texture_t *wall;
+	mlx_texture_t *plyr;
+	mlx_texture_t *cltb;
+	mlx_texture_t *c_ex;
+	mlx_texture_t *o_ex;
+	mlx_image_t *flor_img;
+	mlx_image_t *wall_img;
+	mlx_image_t *plyr_img;
+	mlx_image_t *cltb_img;
+	mlx_image_t *c_ex_img;
+	mlx_image_t *o_ex_img;
+}	t_mlx;
+
 typedef struct s_map
 {
 	int	height;
@@ -57,8 +75,8 @@ typedef struct s_map
 	char	**splited_map;
 	char	**cpy_splited_map;
 	t_data_map *data;
+	t_mlx	d_mlx;
 }	t_map;
-
 
 
 
@@ -75,5 +93,10 @@ int     ft_check_cltbl(t_map *map);
 void	ft_flood_fill(t_map *map, int x, int y);
 int 	ft_equal_cltbl(t_map *map);
 void    print_map(t_map *map);
+int		ft_load_images(t_map *map);
+void	ft_put_wall(t_map *map);
+void	ft_put_floor(t_map *map);
+void	ft_put_cltbl(t_map *map);
+void	ft_put_player(t_map *map);
 
 #endif

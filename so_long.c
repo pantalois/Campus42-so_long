@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:47:12 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/25 15:04:45 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/27 18:45:59 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	main(int argc, char *argv[])
 	t_map	*map;
 	int		x;
 	int		y;
-
+	//void *mlx_win;
+	
 	x = 0;
 	y = 0;
 	//crear una funcion que inicialice las estructuras.
@@ -58,8 +59,32 @@ int	main(int argc, char *argv[])
 				return (1);
 		print_map(map);
 		}
+		map->d_mlx.mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);
+		ft_load_images(map);
+		ft_put_floor(map);
+		ft_put_wall(map);
+		ft_put_player(map);
 		
+		ft_put_cltbl(map);
+		mlx_new_image(map->d_mlx.mlx, 200, 200);
+
+		
+//		mlx_resize_image(map->d_mlx.floor_img, 53, 53);
+///		mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.floor_img, 53, 0);	
+//		mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.floor_img, 0, 0);	
+
+		mlx_loop(map->d_mlx.mlx);
+//		map->data_mlx.image = mlx_new_image(map->data_mlx.mlx, WIDTH, HEIGHT);
+		 
+
+//		mlx_put_pixel(map->data_mlx.texture_to_image, 2, 2, 0X00123); 
+
+
+		//
+		//	do shit
 	}
 	ft_free_data(map);
 	return (0);
 }
+
+
