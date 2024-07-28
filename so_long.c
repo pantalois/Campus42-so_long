@@ -6,11 +6,44 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:47:12 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/27 18:45:59 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/28 18:03:02 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	my_keyhook(mlx_key_data_t keydata, void *param)
+{
+
+	int *i;
+
+	i = (int *)param;
+
+	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
+	{
+		ft_putchar_fd('W', 1);
+		ft_printf("%i\n", i);
+		i++;
+	}
+	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
+	{
+		ft_putchar_fd('A', 1);
+		ft_printf("%i\n", i);
+		i++;
+	}
+	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
+	{
+		ft_putchar_fd('S', 1);
+		ft_printf("%i\n", i);
+		i++;
+	}
+	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
+	{
+		ft_putchar_fd('D', 1);
+		ft_printf("%i\n", i);
+		i++;
+	}	
+}
 
 int	main(int argc, char *argv[])
 {
@@ -63,25 +96,32 @@ int	main(int argc, char *argv[])
 		ft_load_images(map);
 		ft_put_floor(map);
 		ft_put_wall(map);
-		ft_put_player(map);
-		
+		ft_put_player(map);	
 		ft_put_cltbl(map);
-		mlx_new_image(map->d_mlx.mlx, 200, 200);
-
+		map->d_mlx.image = mlx_new_image(map->d_mlx.mlx, 200, 200);
 		
-//		mlx_resize_image(map->d_mlx.floor_img, 53, 53);
-///		mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.floor_img, 53, 0);	
-//		mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.floor_img, 0, 0);	
+		//mlx_put_pixel(map->d_mlx.image, 0, 0, 0xFF0000FF); sale en ejemplo de mlx, pero no me cambia nada a priori
 
+		mlx_key_hook(map->d_mlx.mlx, &my_keyhook, map->data->movements); 
 		mlx_loop(map->d_mlx.mlx);
-//		map->data_mlx.image = mlx_new_image(map->data_mlx.mlx, WIDTH, HEIGHT);
-		 
+		mlx_terminate(map->d_mlx.mlx);
+			
+		//free textures
+		mlx_delete_texture(map->d_mlx.flor);
+		mlx_delete_texture(map->d_mlx.wall);
+		mlx_delete_texture(map->d_mlx.plyr);
+		mlx_delete_texture(map->d_mlx.cltb);
+		mlx_delete_texture(map->d_mlx.c_ex);
+		mlx_delete_texture(map->d_mlx.o_ex);
+		
+		//De momento mlx_delete_image da mas errores
+/*		mlx_delete_image(map->d_mlx.mlx, map->d_mlx.flor_img);
+		mlx_delete_image(map->d_mlx.mlx, map->d_mlx.wall_img);
+		mlx_delete_image(map->d_mlx.mlx, map->d_mlx.plyr_img);
+		mlx_delete_image(map->d_mlx.mlx, map->d_mlx.cltb_img);
+		mlx_delete_image(map->d_mlx.mlx, map->d_mlx.c_ex_img);
+		mlx_delete_image(map->d_mlx.mlx, map->d_mlx.o_ex_img);*/
 
-//		mlx_put_pixel(map->data_mlx.texture_to_image, 2, 2, 0X00123); 
-
-
-		//
-		//	do shit
 	}
 	ft_free_data(map);
 	return (0);

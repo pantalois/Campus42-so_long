@@ -1,12 +1,12 @@
 /* ************************************************************************** */
-
+/*																			  */	
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:21:19 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/28 12:29:12 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/28 18:03:22 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_data_map
 	int	y_cltbl;
 	int amount_cltbl;
 	int	cpy_amount_cltbl;
+	int	*movements;
 }	t_data_map;
 
 typedef	struct s_mlx
@@ -98,5 +99,7 @@ void	ft_put_wall(t_map *map);
 void	ft_put_floor(t_map *map);
 void	ft_put_cltbl(t_map *map);
 void	ft_put_player(t_map *map);
+void	my_keyhook(mlx_key_data_t keydata, void *param);
+
 
 #endif

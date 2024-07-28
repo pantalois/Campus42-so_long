@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 12:55:55 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/28 12:34:26 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:16:12 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,8 @@ void	ft_put_floor(t_map *map)
 	{
 		while (map->splited_map[j][i])
 		{
-			if (/*map->splited_map[j][i] == '0' && */ map->splited_map[j][i])
-			{
-				if (map->splited_map[j][i])
-				{
-					mlx_resize_image(map->d_mlx.flor_img, 50, 50);
-					mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.flor_img, x, y);
-				}
-			}
+			mlx_resize_image(map->d_mlx.flor_img, 50, 50);
+			mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.flor_img, x, y);
 			i++;
 			x += 50;
 		}
@@ -68,31 +62,27 @@ void	ft_put_floor(t_map *map)
 
 void	ft_put_wall(t_map *map)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 	int	i;
 	int	j;
 
 	x = 0;
 	y = 0;
 	i = 0;
-	j = 0;
-	while (map->splited_map[j])
+	j = -1;
+	while (map->splited_map[++j])
 	{
-		while(map->splited_map[j][i])
+		while (map->splited_map[j][i])
 		{
-			if (map->splited_map[j][i] == '1' &&  map->splited_map[j][i])
+			if (map->splited_map[j][i] == '1' && map->splited_map[j][i])
 			{
-				if (map->splited_map[j][i])
-				{
-					mlx_resize_image(map->d_mlx.wall_img, 50, 50);
-					mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.wall_img, x, y);
-				}
+				mlx_resize_image(map->d_mlx.wall_img, 50, 50);
+				mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.wall_img, x, y);
 			}
 			i++;
 			x += 50;
 		}
-		j++;
 		x = 0;
 		i = 0;
 		y += 50;
@@ -101,64 +91,56 @@ void	ft_put_wall(t_map *map)
 
 void	ft_put_cltbl(t_map *map)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 	int	i;
 	int	j;
 
 	x = 0;
 	y = 0;
 	i = 0;
-	j = 0;
-	while (map->splited_map[j])
+	j = -1;
+	while (map->splited_map[++j])
 	{
-		while(map->splited_map[j][i])
+		while (map->splited_map[j][i])
 		{
-			if (map->splited_map[j][i] == 'C' &&  map->splited_map[j][i])
+			if (map->splited_map[j][i] == 'C' && map->splited_map[j][i])
 			{
-				if (map->splited_map[j][i])
-				{
-					mlx_resize_image(map->d_mlx.cltb_img, 40, 40);
-					mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.cltb_img, x, y);
-				}
+				mlx_resize_image(map->d_mlx.cltb_img, 40, 40);
+				mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.cltb_img, x, y);
 			}
 			i++;
 			x += 50;
 		}
-	j++;
-	x = 0;
-	i = 0;
-	y += 50;
+		x = 0;
+		i = 0;
+		y += 50;
 	}
 }
 
 void	ft_put_player(t_map *map)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 	int	i;
 	int	j;
 
 	x = 0;
 	y = 0;
 	i = 0;
-	j = 0;
-	while (map->splited_map[j])
+	j = -1;
+	while (map->splited_map[++j])
 	{
-		while(map->splited_map[j][i])
+		while (map->splited_map[j][i])
 		{
-			if (map->splited_map[j][i] == 'P' &&  map->splited_map[j][i])
+			if (map->splited_map[j][i] == 'P' && map->splited_map[j][i])
 			{
-				if (map->splited_map[j][i])
-				{
-					mlx_resize_image(map->d_mlx.plyr_img, 50, 50);
-					mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.plyr_img, x, y);
-				}
+				mlx_resize_image(map->d_mlx.plyr_img, 50, 50);
+				mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.plyr_img, x, y);
 			}
 			i++;
 			x += 50;
 		}
-		j++;
 		x = 0;
 		i = 0;
 		y += 50;
