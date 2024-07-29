@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:21:19 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/28 18:03:22 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/29 12:16:07 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_data_map
 	int	y_cltbl;
 	int amount_cltbl;
 	int	cpy_amount_cltbl;
-	int	*movements;
+	int	movements;
 }	t_data_map;
 
 typedef	struct s_mlx
@@ -100,6 +100,10 @@ void	ft_put_floor(t_map *map);
 void	ft_put_cltbl(t_map *map);
 void	ft_put_player(t_map *map);
 void	my_keyhook(mlx_key_data_t keydata, void *param);
+void	ft_move_up(t_map* map);
+void	ft_move_down(t_map* map);
+void	ft_move_left(t_map* map);
+void	ft_move_right(t_map* map);
 
 
 #endif

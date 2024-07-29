@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:49:24 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/25 14:46:04 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:56:32 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,28 +73,38 @@ int	ft_split_map(char *argv, t_map *map)
 		single_line = get_next_line(fd);
 	}
 	map->splited_map = ft_split(map->line, '\n');//el split no s cre bian, no guarda la memoria de la primera linea.
+	if (!map->splited_map)
+		return (1);
 	map->cpy_splited_map = ft_split(map->line, '\n');
+	if (!map->cpy_splited_map)
+		return (1);
 	return (0);
 }
 
 int	ft_corners_map(t_map *map)
 {
 	char *check;
-
-	if (!ft_strncmp(map->splited_map[0], map->splited_map[map->height - 1], \
+	
+	if (map->splited_map[map->height - 1] && !ft_strncmp(map->splited_map[0], map->splited_map[map->height - 1], \
 	ft_strlen(map->splited_map[0])))
-	{
+	{	
 		check = ft_strchr_not_found(map->splited_map[0], '1');
 		if (check)
 		{
-			ft_printf("found something that is not an 1\n");
+			ft_printf("Found something that is not a 1\n");
 			ft_free_data(map);
 			return (1);
 		}
 	}
+	else if (!map->splited_map[map->height - 1])
+	{
+		ft_printf("Empty line on map\n");
+		ft_free_data(map);
+		return (1);
+	}
 	else
 	{
-		ft_printf("top and below limits can not differ\n");
+		ft_printf("Top and below limits can not differ\n");
 		ft_free_data(map);
 		return (1);
 	}
@@ -105,12 +115,33 @@ int		ft_sides_map(t_map *map)
 {
 	int i;
 	int j;
-
+	
 	i = 0;
 	j = 0;
-	while (map->splited_map[0][i])
+	while (map->splited_map[j][i])
 		i++;
 	map->line_width = i - 1;
+
+	//Funcion para checkear espacios en blanco dentro del mapa
+	//seguramente la cambiamos a otro utils
+
+	while (map->splited_map[j])
+	{
+		i = 0;
+		while (map->splited_map[j][i])
+		{
+			if ((map->splited_map[j][i] >= 9 && map->splited_map[j][i] <= 13) \
+					|| map->splited_map[j][i] == 32)
+			{
+				ft_free_data(map);
+				ft_printf("Empty spaces inside map\n");
+				return (1);
+			}
+			i++;
+		}
+		j++;
+	}
+
 	while (map->splited_map[j])
 	{
 		if (map->splited_map[j][0] == '1' && 
@@ -119,7 +150,20 @@ int		ft_sides_map(t_map *map)
 		else
 		{
 			ft_free_data(map);
-			ft_printf("Map not surronded by walls\n");
+			ft_printf("MAP not surronded by walls\n");
+			return (1);
+		}
+		if (map->splited_map[0][map->line_width + 1])
+		{
+			ft_free_data(map);
+			ft_printf("Found something that is not a 1\n");
+			return (1);
+		}
+		else if (map->splited_map[0][map->line_width + 1] || 
+				map->splited_map[map->height - 1][map->line_width + 1])
+		{
+			ft_free_data(map);
+			ft_printf("Found something that is not a 1\n");
 			return (1);
 		}
 	}

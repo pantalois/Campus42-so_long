@@ -14,7 +14,8 @@ SRC = so_long.c \
 	  so_long_checks_map.c \
 	  so_long_flood_fill.c \
 	  print_map.c \
-	  so_long_mlx.c
+	  so_long_mlx.c \
+	 so_long_movements.c 
 		
 OBJ = $(SRC:.c=.o)
 

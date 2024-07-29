@@ -6,44 +6,11 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:47:12 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/28 18:03:02 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/29 19:09:10 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	my_keyhook(mlx_key_data_t keydata, void *param)
-{
-
-	int *i;
-
-	i = (int *)param;
-
-	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
-	{
-		ft_putchar_fd('W', 1);
-		ft_printf("%i\n", i);
-		i++;
-	}
-	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
-	{
-		ft_putchar_fd('A', 1);
-		ft_printf("%i\n", i);
-		i++;
-	}
-	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
-	{
-		ft_putchar_fd('S', 1);
-		ft_printf("%i\n", i);
-		i++;
-	}
-	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
-	{
-		ft_putchar_fd('D', 1);
-		ft_printf("%i\n", i);
-		i++;
-	}	
-}
 
 int	main(int argc, char *argv[])
 {
@@ -101,8 +68,7 @@ int	main(int argc, char *argv[])
 		map->d_mlx.image = mlx_new_image(map->d_mlx.mlx, 200, 200);
 		
 		//mlx_put_pixel(map->d_mlx.image, 0, 0, 0xFF0000FF); sale en ejemplo de mlx, pero no me cambia nada a priori
-
-		mlx_key_hook(map->d_mlx.mlx, &my_keyhook, map->data->movements); 
+		mlx_key_hook(map->d_mlx.mlx, &my_keyhook, map); 
 		mlx_loop(map->d_mlx.mlx);
 		mlx_terminate(map->d_mlx.mlx);
 			
