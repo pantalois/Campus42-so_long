@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:21:19 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/29 12:16:07 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:37:30 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ typedef struct s_data_map
 	int x_player;
 	int y_player;
 	int	amount_player;
-	int pos_x_player;
-	int pos_y_player;
+	int pos_x_plyr;
+	int pos_y_plyr;
 	int	x_exit; 
 	int	y_exit;
 	int	amount_exit;
@@ -99,11 +99,12 @@ void	ft_put_wall(t_map *map);
 void	ft_put_floor(t_map *map);
 void	ft_put_cltbl(t_map *map);
 void	ft_put_player(t_map *map);
+void	ft_put_exit(t_map *map);
 void	my_keyhook(mlx_key_data_t keydata, void *param);
 void	ft_move_up(t_map* map);
 void	ft_move_down(t_map* map);
 void	ft_move_left(t_map* map);
 void	ft_move_right(t_map* map);
-
+void	ft_destroy_cltb(t_map *map);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:47:12 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/29 19:09:10 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/30 17:09:00 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,23 @@ int	main(int argc, char *argv[])
 				return (1);
 			if (ft_check_cltbl(map) == 1)//guardar en struct el numero de
 				return (1);
-			x = map->data->pos_x_player;
-			y = map->data->pos_y_player;
+			x = map->data->pos_x_plyr;
+			y = map->data->pos_y_plyr;
 			ft_flood_fill(map, x, y);
 			if (ft_equal_cltbl(map) == 1)
 				return (1);
 		print_map(map);
 		}
-		map->d_mlx.mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);
+		map->d_mlx.mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);//so lo libero al acabar puede que tenga double free
 		ft_load_images(map);
 		ft_put_floor(map);
 		ft_put_wall(map);
 		ft_put_player(map);	
 		ft_put_cltbl(map);
 		map->d_mlx.image = mlx_new_image(map->d_mlx.mlx, 200, 200);
-		
+			
 		//mlx_put_pixel(map->d_mlx.image, 0, 0, 0xFF0000FF); sale en ejemplo de mlx, pero no me cambia nada a priori
-		mlx_key_hook(map->d_mlx.mlx, &my_keyhook, map); 
+		mlx_key_hook(map->d_mlx.mlx, &my_keyhook, map);
 		mlx_loop(map->d_mlx.mlx);
 		mlx_terminate(map->d_mlx.mlx);
 			

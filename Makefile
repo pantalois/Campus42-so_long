@@ -15,11 +15,12 @@ SRC = so_long.c \
 	  so_long_flood_fill.c \
 	  print_map.c \
 	  so_long_mlx.c \
-	 so_long_movements.c 
+	  so_long_movements.c \
+	  so_long_end_game.c
 		
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -Ofast
+CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -O3
 
 LFLAGS = -ldl -lglfw -lm
 

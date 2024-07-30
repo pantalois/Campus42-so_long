@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 12:55:55 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/28 13:16:12 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/30 14:35:13 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,12 +125,12 @@ void	ft_put_player(t_map *map)
 	int	i;
 	int	j;
 
-	x = 0;
 	y = 0;
 	i = 0;
 	j = -1;
 	while (map->splited_map[++j])
 	{
+		x = 0;
 		while (map->splited_map[j][i])
 		{
 			if (map->splited_map[j][i] == 'P' && map->splited_map[j][i])

@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 19:42:50 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/24 19:43:11 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/30 14:51:29 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int ft_check_player(t_map *map)
             map->data->x_player++;
         if (map->splited_map[map->data->y_player][map->data->x_player] == 'P')
         {
-            map->data->pos_x_player = map->data->x_player;
-            map->data->pos_y_player = map->data->y_player;
+            map->data->pos_x_plyr = map->data->x_player;
+            map->data->pos_y_plyr = map->data->y_player;
             map->data->x_player++;
             map->data->amount_player++;
         }
