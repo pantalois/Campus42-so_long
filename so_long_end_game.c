@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:06:39 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/30 17:16:49 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/31 17:42:25 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,21 @@ void	ft_put_exit(t_map *map)
 		i = 0;
 		y += 50;
 	}
+}
+
+void	ft_free_images(t_map *map)
+{
+
+	mlx_delete_texture(map->d_mlx.flor);
+	mlx_delete_texture(map->d_mlx.wall);
+
+	mlx_delete_texture(map->d_mlx.plyr);
+//	mlx_delete_image(map->d_mlx.mlx, map->d_mlx.plyr_img);
+	mlx_close_window(map->d_mlx.mlx);
+
+//	mlx_delete_texture(map->d_mlx.cltb);
+//	mlx_delete_texture(map->d_mlx.o_ex);
+
+//	mlx_delete_image(map->d_mlx.mlx, map->d_mlx.flor_img);
+//	mlx_delete_image(map->d_mlx.mlx, map->d_mlx.wall_img);
 }

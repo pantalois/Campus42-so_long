@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:49:24 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/29 15:56:32 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/31 17:57:37 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ int	ft_size_map(char *argv, t_map *map)
 	}
 	free(line);
 	map->height = j;
+	if (map ->height == map->width)
+	{
+		ft_printf("Squared map\n");
+		return (1);
+	}
 	return (0);
 }
 
@@ -121,7 +126,13 @@ int		ft_sides_map(t_map *map)
 	while (map->splited_map[j][i])
 		i++;
 	map->line_width = i - 1;
-
+	ft_printf("width = %i\n", map->line_width + 1);
+	ft_printf("height = %i\n", map->height);
+	if (map->height == map->line_width + 1)
+	{
+		ft_printf("Squared map\n");
+		return (1);
+	}
 	//Funcion para checkear espacios en blanco dentro del mapa
 	//seguramente la cambiamos a otro utils
 

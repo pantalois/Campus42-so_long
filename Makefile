@@ -16,11 +16,11 @@ SRC = so_long.c \
 	  print_map.c \
 	  so_long_mlx.c \
 	  so_long_movements.c \
-	  so_long_end_game.c
+	  so_long_end_game.c 
 		
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -O3
+CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -O3 #-fsanitize=address
 
 LFLAGS = -ldl -lglfw -lm
 

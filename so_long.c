@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:47:12 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/30 17:09:00 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:55:52 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,21 @@ int	main(int argc, char *argv[])
 		ft_put_wall(map);
 		ft_put_player(map);	
 		ft_put_cltbl(map);
-		map->d_mlx.image = mlx_new_image(map->d_mlx.mlx, 200, 200);
-			
+		map->d_mlx.image = mlx_new_image(map->d_mlx.mlx, 200, 200);	
 		//mlx_put_pixel(map->d_mlx.image, 0, 0, 0xFF0000FF); sale en ejemplo de mlx, pero no me cambia nada a priori
 		mlx_key_hook(map->d_mlx.mlx, &my_keyhook, map);
+		ft_printf("hola k ase\n");	
 		mlx_loop(map->d_mlx.mlx);
+		
 		mlx_terminate(map->d_mlx.mlx);
 			
 		//free textures
-		mlx_delete_texture(map->d_mlx.flor);
+		/*mlx_delete_texture(map->d_mlx.flor);
 		mlx_delete_texture(map->d_mlx.wall);
 		mlx_delete_texture(map->d_mlx.plyr);
 		mlx_delete_texture(map->d_mlx.cltb);
 		mlx_delete_texture(map->d_mlx.c_ex);
-		mlx_delete_texture(map->d_mlx.o_ex);
+		mlx_delete_texture(map->d_mlx.o_ex);*/
 		
 		//De momento mlx_delete_image da mas errores
 /*		mlx_delete_image(map->d_mlx.mlx, map->d_mlx.flor_img);

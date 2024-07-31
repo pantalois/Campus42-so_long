@@ -1,12 +1,10 @@
-/* ************************************************************************** */
-/*																			  */	
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:21:19 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/30 16:37:30 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/07/31 12:49:04 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +104,6 @@ void	ft_move_down(t_map* map);
 void	ft_move_left(t_map* map);
 void	ft_move_right(t_map* map);
 void	ft_destroy_cltb(t_map *map);
+void	ft_free_images(t_map *map);
 
 #endif
