@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:13:21 by loigonza          #+#    #+#             */
-/*   Updated: 2024/08/01 13:44:45 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/08/01 15:37:56 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	ft_free_data(t_map *map)
 			free(map->line);
 		if (map->splited_map)
 			ft_free_splited_data(map);
-		free(map->data);
+		if (map->data)
+			free(map->data);
 		free(map);
 	}
 }
