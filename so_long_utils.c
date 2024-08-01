@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:49:24 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/31 17:57:37 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/08/01 13:04:26 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	ft_size_map(char *argv, t_map *map)
 		ft_printf("Squared map\n");
 		return (1);
 	}
+	close(fd);
 	return (0);
 }
 
@@ -125,7 +126,35 @@ int		ft_sides_map(t_map *map)
 	j = 0;
 	while (map->splited_map[j][i])
 		i++;
-	map->line_width = i - 1;
+	map->first_line_width = i - 1;
+	i = 0;
+	j++;
+	while (map->splited_map[j][i])
+	{
+		i = 0;
+		while (map->splited_map[j][i])
+			i++;
+		map->line_width = i - 1;
+		if (i >= 39)
+		{
+			ft_printf("Map out of the window limits\n");
+			ft_free_data(map);
+			return (1);
+		}
+		if (map->height >= 22)
+		{
+			ft_printf("Map out of the window limits\n");
+			ft_free_data(map);
+			return (1);
+		}
+		if (map->first_line_width != map->line_width)
+		{
+			ft_printf("All the sides of the map are not equal\n");
+			ft_free_data(map);
+			return (1);
+		}
+		j++;
+	}
 	ft_printf("width = %i\n", map->line_width + 1);
 	ft_printf("height = %i\n", map->height);
 	if (map->height == map->line_width + 1)
@@ -135,7 +164,7 @@ int		ft_sides_map(t_map *map)
 	}
 	//Funcion para checkear espacios en blanco dentro del mapa
 	//seguramente la cambiamos a otro utils
-
+	j = 0;
 	while (map->splited_map[j])
 	{
 		i = 0;

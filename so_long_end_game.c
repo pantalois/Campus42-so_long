@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:06:39 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/31 17:42:25 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/08/01 13:33:26 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 void	ft_destroy_cltb(t_map *map)
 {
-	//poner imagen encima de 0 del coltb, una vez la amount sea 0 destroy image
 	map->splited_map[map->data->pos_y_plyr][map->data->pos_x_plyr] = '0';
 	mlx_delete_image(map->d_mlx.mlx, map->d_mlx.cltb_img);
 	map->d_mlx.cltb_img = mlx_texture_to_image(map->d_mlx.mlx, \
 				map->d_mlx.cltb);
-
 	ft_put_cltbl(map);
 	map->data->amount_cltbl--;
-	if (map->data->amount_cltbl  == 0)
+	if (map->data->amount_cltbl == 0)
 	{
 		ft_put_exit(map);
 	}
@@ -49,7 +47,7 @@ void	ft_put_exit(t_map *map)
 				mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.o_ex_img, x, y);
 			}
 			else
-				map->splited_map[map->data->pos_y_exit][map->data->pos_x_exit] = 'E';
+				map->splited_map[map->data->ps_y_ex][map->data->ps_x_ex] = 'E';
 			i++;
 			x += 50;
 		}
@@ -61,17 +59,10 @@ void	ft_put_exit(t_map *map)
 
 void	ft_free_images(t_map *map)
 {
-
 	mlx_delete_texture(map->d_mlx.flor);
 	mlx_delete_texture(map->d_mlx.wall);
-
 	mlx_delete_texture(map->d_mlx.plyr);
-//	mlx_delete_image(map->d_mlx.mlx, map->d_mlx.plyr_img);
+	mlx_delete_texture(map->d_mlx.cltb);
+	mlx_delete_texture(map->d_mlx.o_ex);
 	mlx_close_window(map->d_mlx.mlx);
-
-//	mlx_delete_texture(map->d_mlx.cltb);
-//	mlx_delete_texture(map->d_mlx.o_ex);
-
-//	mlx_delete_image(map->d_mlx.mlx, map->d_mlx.flor_img);
-//	mlx_delete_image(map->d_mlx.mlx, map->d_mlx.wall_img);
 }

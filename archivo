@@ -1,0 +1,1 @@
+valgrind --leak-check=full --show-leak-kinds=all -s ./so_long mapa2.be

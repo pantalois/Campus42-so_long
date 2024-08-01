@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 12:55:55 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/31 16:34:17 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/08/01 12:55:54 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ int	ft_load_images(t_map *map)
 	map->d_mlx.wall = mlx_load_png("so_long_PNG/Wall.png");
 	map->d_mlx.plyr = mlx_load_png("so_long_PNG/Player.png");
 	map->d_mlx.cltb = mlx_load_png("so_long_PNG/cltbl.png");
-	map->d_mlx.c_ex = mlx_load_png("so_long_PNG/closed_exit.png");
+//	map->d_mlx.c_ex = mlx_load_png("so_long_PNG/closed_exit.png");
 	map->d_mlx.o_ex = mlx_load_png("so_long_PNG/open_exit.png");
 	map->d_mlx.flor_img = mlx_texture_to_image(map->d_mlx.mlx, map->d_mlx.flor);
 	map->d_mlx.wall_img = mlx_texture_to_image(map->d_mlx.mlx, map->d_mlx.wall);
 	map->d_mlx.plyr_img = mlx_texture_to_image(map->d_mlx.mlx, map->d_mlx.plyr);
 	map->d_mlx.cltb_img = mlx_texture_to_image(map->d_mlx.mlx, map->d_mlx.cltb);
-	map->d_mlx.c_ex_img = mlx_texture_to_image(map->d_mlx.mlx, map->d_mlx.c_ex);
+//	map->d_mlx.c_ex_img = mlx_texture_to_image(map->d_mlx.mlx, map->d_mlx.c_ex);
 	map->d_mlx.o_ex_img = mlx_texture_to_image(map->d_mlx.mlx, map->d_mlx.o_ex);
 	if (!map->d_mlx.flor_img || ! map->d_mlx.wall_img || !map->d_mlx.plyr_img
-		|| !map->d_mlx.cltb_img || ! map->d_mlx.c_ex_img
+		|| !map->d_mlx.cltb_img //|| ! map->d_mlx.c_ex_img
 		|| !map->d_mlx.o_ex_img)
 		return (1);
 	return (0);

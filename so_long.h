@@ -38,8 +38,8 @@ typedef struct s_data_map
 	int	y_exit;
 	int	amount_exit;
 	int	cpy_amount_exit;
-	int	pos_x_exit;
-	int	pos_y_exit;
+	int	ps_x_ex;
+	int	ps_y_ex;
 	int	x_cltbl;
 	int	y_cltbl;
 	int amount_cltbl;
@@ -69,6 +69,7 @@ typedef struct s_map
 {
 	int	height;
 	int width;
+	int first_line_width;
 	int	line_width;
 	char	*line;
 	char	**splited_map;
@@ -91,6 +92,8 @@ int		ft_check_exit(t_map *map);
 int     ft_check_cltbl(t_map *map);
 void	ft_flood_fill(t_map *map, int x, int y);
 int 	ft_equal_cltbl(t_map *map);
+int		ft_equal_exit(t_map *map);
+int		ft_random_char(t_map *map);
 void    print_map(t_map *map);
 int		ft_load_images(t_map *map);
 void	ft_put_wall(t_map *map);
