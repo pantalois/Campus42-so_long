@@ -22,7 +22,7 @@ SRC = so_long.c \
 		
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -O3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -O3 #-fsanitize=address
 
 LFLAGS = -ldl -lglfw -lm
 

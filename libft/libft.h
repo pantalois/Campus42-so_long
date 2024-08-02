@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 18:04:24 by loigonza          #+#    #+#             */
-/*   Updated: 2024/07/18 12:48:47 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/08/02 18:19:33 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <stdio.h>
-#include "get_next_line/get_next_line.h"
+# include "get_next_line/get_next_line.h"
 
 typedef struct s_list
 {
