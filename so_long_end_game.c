@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:06:39 by loigonza          #+#    #+#             */
-/*   Updated: 2024/08/01 13:33:26 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/08/02 15:15:39 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,8 @@ void	ft_put_exit(t_map *map)
 	{
 		while (map->splited_map[j][i])
 		{
-			if (map->splited_map[j][i] == 'E' && map->splited_map[j][i])
-			{
-				mlx_resize_image(map->d_mlx.o_ex_img, 50, 50);
-				mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.o_ex_img, x, y);
-			}
+			if (map->splited_map[j][i] == 'E')
+				ft_resize_exit(map, x, y);
 			else
 				map->splited_map[map->data->ps_y_ex][map->data->ps_x_ex] = 'E';
 			i++;
@@ -55,6 +52,12 @@ void	ft_put_exit(t_map *map)
 		i = 0;
 		y += 50;
 	}
+}
+
+void	ft_resize_exit(t_map *map, int x, int y)
+{
+	mlx_resize_image(map->d_mlx.o_ex_img, 50, 50);
+	mlx_image_to_window(map->d_mlx.mlx, map->d_mlx.o_ex_img, x, y);
 }
 
 void	ft_free_images(t_map *map)

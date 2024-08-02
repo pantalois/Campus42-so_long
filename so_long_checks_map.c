@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 19:42:50 by loigonza          #+#    #+#             */
-/*   Updated: 2024/08/01 13:30:08 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/08/02 12:38:46 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_check_player(t_map *map)
 		return (0);
 	else
 	{
-		ft_printf("Player not setted properly\n");
+		ft_write_error(ERRORP);
 		return (ft_free_data(map), 1);
 	}
 }
@@ -65,7 +65,7 @@ int	ft_check_exit(t_map *map)
 		return (0);
 	else
 	{
-		ft_printf("Exit not setted properly\n");
+		ft_write_error(ERRORE);
 		return (ft_free_data(map), 1);
 	}
 }
@@ -90,7 +90,7 @@ int	ft_check_cltbl(t_map *map)
 	}
 	if (map->data->amount_cltbl == 0)
 	{
-		ft_printf("There is not collectables\n");
+		ft_write_error(ERRORC);
 		return (ft_free_data(map), 1);
 	}
 	else

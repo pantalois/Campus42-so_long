@@ -10,17 +10,19 @@ NAME = so_long
 
 SRC = so_long.c \
 	  so_long_utils.c \
+	  so_long_utils_2.c \
 	  so_long_free.c \
 	  so_long_checks_map.c \
 	  so_long_flood_fill.c \
-	  print_map.c \
 	  so_long_mlx.c \
 	  so_long_movements.c \
-	  so_long_end_game.c 
+	  so_long_end_game.c \
+	  so_long_write_error.c
+
 		
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -O3 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -Wunreachable-code -O3 -fsanitize=address
 
 LFLAGS = -ldl -lglfw -lm
 

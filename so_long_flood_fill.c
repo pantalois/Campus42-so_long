@@ -6,7 +6,7 @@
 /*   By: loigonza <loigonza@42.barcel>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:29:05 by loigonza          #+#    #+#             */
-/*   Updated: 2024/08/01 13:40:19 by loigonza         ###   ########.fr       */
+/*   Updated: 2024/08/02 12:32:36 by loigonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_equal_cltbl(t_map *map)
 		return (0);
 	else
 	{
-		ft_printf("Can't access to all the collectionables\n");
+		ft_write_error(ERRORC2);
 		ft_free_data(map);
 		return (1);
 	}
@@ -47,7 +47,7 @@ int	ft_equal_exit(t_map *map)
 		return (0);
 	else
 	{
-		ft_printf("Can't access to the exit\n");
+		ft_write_error(ERRORE2);
 		ft_free_data(map);
 		return (1);
 	}
@@ -72,7 +72,7 @@ int	ft_random_char(t_map *map)
 					&& map->splited_map[j][i] != '\n')
 			{
 				ft_free_data(map);
-				ft_printf("Weird char found inside the map\n");
+				ft_write_error(ERRORCHAR);
 				return (1);
 			}
 			i++;
